@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" ignored="72" total="73" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="oneAgent" duration-ms="123132" started-at="2019-09-18T06:09:49Z" finished-at="2019-09-18T06:11:52Z">
+    <groups>
+    </groups>
+    <test name="Test1" duration-ms="123132" started-at="2019-09-18T06:09:49Z" finished-at="2019-09-18T06:11:52Z">
+      <class name="press3Test.AgentTest">
+        <test-method status="PASS" signature="clearStaticVariables()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="clearStaticVariables" is-config="true" duration-ms="11" started-at="2019-09-18T06:09:49Z" finished-at="2019-09-18T06:09:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- clearStaticVariables -->
+        <test-method status="PASS" signature="browserInitialize(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="browserInitialize" is-config="true" duration-ms="4041" started-at="2019-09-18T06:09:49Z" finished-at="2019-09-18T06:09:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[automationagent1@press3.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Press3@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Profile 2]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1,1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserInitialize -->
+        <test-method status="FAIL" signature="verifyInBoundCallsAregettingRefelectedInCallHistory()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="verifyInBoundCallsAregettingRefelectedInCallHistory" duration-ms="118307" started-at="2019-09-18T06:09:53Z" finished-at="2019-09-18T06:11:51Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [success] but found [org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id='answerModal']//*[@id='callFrom'] (tried for 100 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5HEF6VE', ip: '192.168.72.155', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:47095}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: cd59d7dc33a37e2d3368cb0d28722bec]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [success] but found [org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id='answerModal']//*[@id='callFrom'] (tried for 100 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-5HEF6VE', ip: '192.168.72.155', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:47095}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: cd59d7dc33a37e2d3368cb0d28722bec]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:442)
+at press3Pages.agentPages.AgentHomePage.verifyInBoundCallsAreReflectedInCallHistory(AgentHomePage.java:1520)
+at press3Test.AgentTest.verifyInBoundCallsAregettingRefelectedInCallHistory(AgentTest.java:257)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.util.concurrent.FutureTask.run(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInBoundCallsAregettingRefelectedInCallHistory -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="tearDown" is-config="true" duration-ms="763" started-at="2019-09-18T06:11:51Z" finished-at="2019-09-18T06:11:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyInBoundCallsAregettingRefelectedInCallHistory status=FAILURE method=AgentTest.verifyInBoundCallsAregettingRefelectedInCallHistory()[pri:0, instance:press3Test.AgentTest@eec5a4a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="quiteBrowser()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="quiteBrowser" is-config="true" duration-ms="0" started-at="2019-09-18T06:11:52Z" finished-at="2019-09-18T06:11:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quiteBrowser -->
+      </class> <!-- press3Test.AgentTest -->
+    </test> <!-- Test1 -->
+  </suite> <!-- oneAgent -->
+</testng-results>

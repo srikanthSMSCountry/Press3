@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestingWith5Agents" thread-count="5" parallel="tests">
+	<test name="Profile 2">
+		<parameter name="username" value="automationagent1@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 2" />
+		<parameter name="profilesCount" value="1,5" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	<test name="Profile 3">
+		<parameter name="username" value="automationagent2@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 3" />
+		<parameter name="profilesCount" value="2,5" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+		<test name="Profile 4">
+		<parameter name="username" value="automationagent3@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 4" />
+		<parameter name="profilesCount" value="3,5" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+		<test name="Profile 5">
+		<parameter name="username" value="automationagent4@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 5" />
+		<parameter name="profilesCount" value="4,5" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+		<test name="Profile 6">
+		<parameter name="username" value="automationagent5@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 6" />
+		<parameter name="profilesCount" value="5,5" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->
+

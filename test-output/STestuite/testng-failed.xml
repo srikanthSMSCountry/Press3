@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [STestuite]" parallel="tests">
+  <test thread-count="2" name="Test2(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 3"/>
+    <parameter name="username" value="automationagent2@press3.com"/>
+    <classes>
+      <class name="press3AutomationTest.NewTest">
+        <methods>
+          <include name="ftest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- press3AutomationTest.NewTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test thread-count="2" name="Test5(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 6"/>
+    <parameter name="username" value="automationagent5@press3.com"/>
+    <classes>
+      <class name="press3AutomationTest.NewTest">
+        <methods>
+          <include name="ftest" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- press3AutomationTest.NewTest -->
+    </classes>
+  </test> <!-- Test5(failed) -->
+</suite> <!-- Failed suite [STestuite] -->

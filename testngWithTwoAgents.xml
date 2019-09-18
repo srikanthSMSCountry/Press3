@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="twoAgents" thread-count="2" parallel="tests">
+	<test name="Test1">
+		<parameter name="username" value="automationagent1@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 2" />
+		<parameter name="profilesCount" value="1,2" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyAllFieldsAreGettingDisplayedOnAgentPageForInBoundCall" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	<test name="Test2">
+		<parameter name="username" value="automationagent2@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 3" />
+		<parameter name="profilesCount" value="2,2" />
+		<classes>
+			<class name="press3Test.AgentTest">
+				<methods>
+					<include name="verifyAllFieldsAreGettingDisplayedOnAgentPageForInBoundCall" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite>

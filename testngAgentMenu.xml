@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestingWith5Agents" thread-count="3" parallel="tests">
+	<test name="Test1">
+		<parameter name="username" value="vegagent@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 2" />
+		<parameter name="profilesCount" value="1,3" />
+		<classes>
+			<class name="press3AutomationTest.NewTest">
+				<methods>
+					<include name="verifyAgentFunctionalityForMenu" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	<test name="Test2">
+		<parameter name="username" value="nonvegagent@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 3" />
+		<parameter name="profilesCount" value="2,3" />
+		<classes>
+			<class name="press3AutomationTest.NewTest">
+				<methods>
+					<include name="verifyAgentFunctionalityForMenu" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+		<test name="Test3">
+		<parameter name="username" value="vandnvagent@press3.com" />
+		<parameter name="password" value="Press3@123" />
+		<parameter name="profilename" value="Profile 4" />
+		<parameter name="profilesCount" value="3,3" />
+		<classes>
+			<class name="press3AutomationTest.NewTest">
+				<methods>
+					<include name="verifyAgentFunctionalityForMenu" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

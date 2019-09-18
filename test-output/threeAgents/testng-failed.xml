@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [threeAgents]" parallel="tests">
+  <test thread-count="3" name="Test2(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 3"/>
+    <parameter name="profilesCount" value="2,3"/>
+    <parameter name="username" value="automationagent2@press3.com"/>
+    <classes>
+      <class name="press3Test.AgentTest">
+        <methods>
+          <include name="quiteBrowser"/>
+          <include name="verifyInBoundCallFunctionalityOfAnAgnet"/>
+          <include name="tearDown"/>
+          <include name="browserInitialize"/>
+          <include name="beforeCalss"/>
+          <include name="clearStaticVariables"/>
+        </methods>
+      </class> <!-- press3Test.AgentTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+  <test thread-count="3" name="Test3(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 4"/>
+    <parameter name="profilesCount" value="3,3"/>
+    <parameter name="username" value="automationagent3@press3.com"/>
+    <classes>
+      <class name="press3Test.AgentTest">
+        <methods>
+          <include name="quiteBrowser"/>
+          <include name="verifyInBoundCallFunctionalityOfAnAgnet"/>
+          <include name="tearDown"/>
+          <include name="browserInitialize"/>
+          <include name="beforeCalss"/>
+          <include name="clearStaticVariables"/>
+        </methods>
+      </class> <!-- press3Test.AgentTest -->
+    </classes>
+  </test> <!-- Test3(failed) -->
+  <test thread-count="3" name="Test1(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 2"/>
+    <parameter name="profilesCount" value="1,3"/>
+    <parameter name="username" value="automationagent1@press3.com"/>
+    <classes>
+      <class name="press3Test.AgentTest">
+        <methods>
+          <include name="quiteBrowser"/>
+          <include name="verifyInBoundCallFunctionalityOfAnAgnet"/>
+          <include name="tearDown"/>
+          <include name="browserInitialize"/>
+          <include name="beforeCalss"/>
+          <include name="clearStaticVariables"/>
+        </methods>
+      </class> <!-- press3Test.AgentTest -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [threeAgents] -->

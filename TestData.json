@@ -1,0 +1,13 @@
+{
+   "ParentPassword"	:	"123456",
+   "ParentInvaildUsername"	: "1111111111",
+   "DisplayName" : "sudha",
+   "FirstName"	:	"Saisudha",
+   "LastName" :	"vukturi",
+   "Mobile"	:	"9642850605",
+   "LoginId"	: "saisudha@gmail.com",
+   "AgentPassword" :"Press3@123",
+   "Skill" :"AutomationSkill1",
+   "SkillGroup":"AutomationGroup"
+   
+}

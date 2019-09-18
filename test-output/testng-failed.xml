@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [oneAgent]" parallel="tests">
+  <test thread-count="1" name="Test1(failed)" parallel="tests">
+    <parameter name="password" value="Press3@123"/>
+    <parameter name="profilename" value="Profile 2"/>
+    <parameter name="profilesCount" value="1,1"/>
+    <parameter name="username" value="automationagent1@press3.com"/>
+    <classes>
+      <class name="press3Test.AgentTest">
+        <methods>
+          <include name="quiteBrowser"/>
+          <include name="tearDown"/>
+          <include name="browserInitialize"/>
+          <include name="clearStaticVariables"/>
+          <include name="verifyInBoundCallsAregettingRefelectedInCallHistory"/>
+        </methods>
+      </class> <!-- press3Test.AgentTest -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [oneAgent] -->
