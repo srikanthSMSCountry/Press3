@@ -61,6 +61,7 @@ public class ManagerTest extends BrowserFunctions {
 				"createSkill");
 		System.out.println("hello");
 		System.out.println("hi");
+		System.out.println("chandra branch");
 		Login login = new Login(driver, profileName, userName, passWord);
 		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
 		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
