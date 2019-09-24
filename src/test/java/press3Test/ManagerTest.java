@@ -59,9 +59,7 @@ public class ManagerTest extends BrowserFunctions {
 	public void createSkill() throws InterruptedException{
 		testSteps = testCase.createTest("createSkill",
 				"createSkill");
-		System.out.println("hello");
-		System.out.println("hi");
-		System.out.println("chandra branch");
+		
 		Login login = new Login(driver, profileName, userName, passWord);
 		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
 		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
@@ -182,15 +180,15 @@ public class ManagerTest extends BrowserFunctions {
 	}
 	
 	public void createNewIvr() throws InterruptedException {
-//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-//		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
-//		Login login = new Login(driver, profileName, userName, passWord);
-//		login.loginToProfile();
-//		md.clickIvrStudioIcon();
-//		ivr.createNewIvrStudio();
-//		ivr.setPlayMessge();
-//		ivr.setRingUser();
-//		ivr.createNewIvr();
+		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
+		Login login = new Login(driver, profileName, userName, passWord);
+		login.loginToProfile();
+		//md.clickIvrStudioIcon();
+		ivr.createNewIvrStudio();
+		ivr.setPlayMessge();
+		ivr.setRingUser();
+		ivr.createNewIvr();
 	}
 
 	public void createMenuIvr() throws InterruptedException {

@@ -3,12 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="press3AutomationTest.NewTest">
+      <class name="press3Pages.ManagerPages.IvrStudio">
         <methods>
-          <include name="testSheet"/>
-          <include name="browserInitialize"/>
+          <include name="ivrCreation"/>
         </methods>
-      </class> <!-- press3AutomationTest.NewTest -->
+      </class> <!-- press3Pages.ManagerPages.IvrStudio -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,108 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="72" total="73" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="oneAgent" duration-ms="118432" started-at="2019-09-24T03:32:51Z" finished-at="2019-09-24T03:34:50Z">
+  <suite name="Default suite" duration-ms="27565" started-at="2019-09-24T11:23:37Z" finished-at="2019-09-24T11:24:04Z">
     <groups>
     </groups>
-    <test name="Test1" duration-ms="118432" started-at="2019-09-24T03:32:51Z" finished-at="2019-09-24T03:34:50Z">
-      <class name="press3Test.AgentTest">
-        <test-method status="PASS" signature="clearStaticVariables()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="clearStaticVariables" is-config="true" duration-ms="16" started-at="2019-09-24T03:32:51Z" finished-at="2019-09-24T03:32:51Z">
+    <test name="Default test" duration-ms="27565" started-at="2019-09-24T11:23:37Z" finished-at="2019-09-24T11:24:04Z">
+      <class name="press3Pages.ManagerPages.IvrStudio">
+        <test-method status="PASS" signature="ivrCreation()[pri:0, instance:press3Pages.ManagerPages.IvrStudio@69ea3742]" name="ivrCreation" duration-ms="27543" started-at="2019-09-24T11:23:37Z" finished-at="2019-09-24T11:24:04Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clearStaticVariables -->
-        <test-method status="PASS" signature="browserInitialize(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="browserInitialize" is-config="true" duration-ms="4229" started-at="2019-09-24T03:32:51Z" finished-at="2019-09-24T03:32:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[automationagent1@press3.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Press3@123]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Profile 2]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1,1]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- browserInitialize -->
-        <test-method status="FAIL" signature="verifyInBoundCallFunctionalityOfAnAgnet()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="verifyInBoundCallFunctionalityOfAnAgnet" duration-ms="113631" started-at="2019-09-24T03:32:56Z" finished-at="2019-09-24T03:34:49Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [success] but found [org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id='answerModal']//*[@id='callFrom'] (tried for 100 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5HEF6VE', ip: '192.168.72.155', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:28237}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 868d1e57adfc3d7aa02357ff9bf7cd13]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [success] but found [org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id='answerModal']//*[@id='callFrom'] (tried for 100 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-5HEF6VE', ip: '192.168.72.155', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_171'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:28237}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 868d1e57adfc3d7aa02357ff9bf7cd13]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:442)
-at press3Pages.agentPages.AgentHomePage.verifyInBoundCallsOnAgentPage(AgentHomePage.java:907)
-at press3Test.AgentTest.verifyInBoundCallFunctionalityOfAnAgnet(AgentTest.java:79)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
-at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
-at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
-at java.util.concurrent.FutureTask.run(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-at java.lang.Thread.run(Unknown Source)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyInBoundCallFunctionalityOfAnAgnet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="tearDown" is-config="true" duration-ms="559" started-at="2019-09-24T03:34:49Z" finished-at="2019-09-24T03:34:50Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=verifyInBoundCallFunctionalityOfAnAgnet status=FAILURE method=AgentTest.verifyInBoundCallFunctionalityOfAnAgnet()[pri:0, instance:press3Test.AgentTest@eec5a4a] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="quiteBrowser()[pri:0, instance:press3Test.AgentTest@eec5a4a]" name="quiteBrowser" is-config="true" duration-ms="0" started-at="2019-09-24T03:34:50Z" finished-at="2019-09-24T03:34:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- quiteBrowser -->
-      </class> <!-- press3Test.AgentTest -->
-    </test> <!-- Test1 -->
-  </suite> <!-- oneAgent -->
+        </test-method> <!-- ivrCreation -->
+      </class> <!-- press3Pages.ManagerPages.IvrStudio -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
