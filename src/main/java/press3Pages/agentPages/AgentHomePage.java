@@ -133,6 +133,12 @@ public class AgentHomePage {
 
 	// scripts elements
 	public By scriptsDropdown = By.id("ddlScripts");
+		//testingQA
+		//script_1569230681384
+	public By scriptName = By.xpath("//*[@id='sciptsdata']//*[@class='well well-lite-grey well-sm f_13 brd']//h4");
+	public By topicName = By.xpath("//*[@id='sciptsdata']//*[@class='well well-lite-grey well-sm f_13 brd']//label");
+	public By desciptionName = By.xpath("//*[@id='sciptsdata']//*[@class='well well-lite-grey well-sm f_13 brd']//p");
+	
 	public By scriptSectionDropDown = By.id("ddlSections");
 	public By scriptTopics = By.id("ddlTopics");
 
@@ -140,6 +146,19 @@ public class AgentHomePage {
 	public By inBoundCallInProgress = By.xpath(
 			"//*[@id='divSidePanel']/div[3]//*[@class='divHangUpCall']//*[contains(@class,'btn btn-sm btn-danger')]");
 
+	
+	public void verifyScriptsAreDisplayedOnAgentPage(List<String> details){
+		Select selectElement = new Select(driver.findElement(scriptsDropdown));
+		selectElement.selectByVisibleText(details.get(0));
+		Assert.assertTrue(details.contains(driver.findElement(scriptName).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(topicName).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(desciptionName).getText()));
+		Select selectSectionElement = new Select(driver.findElement(scriptSectionDropDown));
+		selectSectionElement.selectByVisibleText(details.get(2));
+		Select selectTopicElement = new Select(driver.findElement(scriptTopics));
+		selectTopicElement.selectByVisibleText(details.get(3));
+	}
+	
 	// home elements
 	public By homeIcon = By.className("icon-home");
 	public By campaignHomeOption = By.xpath("//*[@id='SideBarToggle1']//*[@class='sub-menu']//*[@class='title']");
@@ -262,6 +281,30 @@ public class AgentHomePage {
 	public By categoryType = By.xpath("//*[@class='ticket_cate pull-left']//li[2]");
 	public By callerName = By.xpath("//*[@class='margin-left-5 text-underline']");
 	public By ticketHistoryText = By.xpath("//*[@id='tokens']//*[@class='txt-lite-grey bold']");
+	
+	//agetn details in AgentProfile
+	public By agentSkills = By.xpath("//*[@id='tab_5_1']//*[@class='row'][1]//*[@class='label_round f_13 prior_lab margin-right-5 margin-bottom-15']");
+	public By skillGroup = By.xpath("//*[@id='tab_5_1']//*[@class='label_round f_13 margin-right-5']");
+	public By displayNAme = By.id("full_name");
+	public By mobile = By.id("mobile");
+	public By email = By.id("email");
+	public By designation = By.id("designation");
+	public By reportingManager = By.id("reportingManager");
+	public By deviceType = By.id("deviceType");
+	public By profileType = By.id("profileType");
+	
+	
+	public void  verifyCreatedProfile(List<String> details){
+		Assert.assertTrue(details.contains(driver.findElement(agentSkills).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(displayNAme).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(mobile).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(email).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(designation).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(reportingManager).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(deviceType).getText()));
+		Assert.assertTrue(details.contains(driver.findElement(profileType).getText()));
+	}
+	
 
 	public boolean verifyNotificationOfCBR() {
 		return driver.findElement(cbrNotifier).isDisplayed();

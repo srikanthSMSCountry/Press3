@@ -10,10 +10,10 @@
       <class name="press3Test.AgentTest">
         <methods>
           <include name="quiteBrowser"/>
+          <include name="verifyInBoundCallFunctionalityOfAnAgnet"/>
           <include name="tearDown"/>
           <include name="browserInitialize"/>
           <include name="clearStaticVariables"/>
-          <include name="verifyInBoundCallsAregettingRefelectedInCallHistory"/>
         </methods>
       </class> <!-- press3Test.AgentTest -->
     </classes>

@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-oneAgent">
-                    <span>D:\press3Automation\testngWithOneAgent.xml</span>
+                    <span>D:\Press3Git\Press3\testngWithOneAgent.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -102,7 +102,7 @@
                     <div class="method-list-content failed suite-oneAgent">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-oneAgent" title="press3Test.AgentTest" hash-for-method="verifyInBoundCallsAregettingRefelectedInCallHistory">verifyInBoundCallsAregettingRefelectedInCallHistory</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-oneAgent" title="press3Test.AgentTest" hash-for-method="verifyInBoundCallFunctionalityOfAnAgnet">verifyInBoundCallFunctionalityOfAnAgnet</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-oneAgent -->
@@ -125,17 +125,17 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyInBoundCallsAregettingRefelectedInCallHistory">
-                  </a> <!-- verifyInBoundCallsAregettingRefelectedInCallHistory -->
-                  <span class="method-name">verifyInBoundCallsAregettingRefelectedInCallHistory</span>
+                  <a name="verifyInBoundCallFunctionalityOfAnAgnet">
+                  </a> <!-- verifyInBoundCallFunctionalityOfAnAgnet -->
+                  <span class="method-name">verifyInBoundCallFunctionalityOfAnAgnet</span>
                   <div class="stack-trace">java.lang.AssertionError: expected [success] but found [org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //*[@id=&apos;answerModal&apos;]//*[@id=&apos;callFrom&apos;] (tried for 100 second(s) with 500 milliseconds interval)
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-5HEF6VE&apos;, ip: &apos;192.168.72.155&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_171&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:47095}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: cd59d7dc33a37e2d3368cb0d28722bec]
-	at press3Pages.agentPages.AgentHomePage.verifyInBoundCallsAreReflectedInCallHistory(AgentHomePage.java:1520)
-	at press3Test.AgentTest.verifyInBoundCallsAregettingRefelectedInCallHistory(AgentTest.java:257)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 77.0.3865.40 (f484704e052e0..., userDataDir: C:\Users\smsc\AppData\Local...}, goog:chromeOptions: {debuggerAddress: localhost:28237}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 868d1e57adfc3d7aa02357ff9bf7cd13]
+	at press3Pages.agentPages.AgentHomePage.verifyInBoundCallsOnAgentPage(AgentHomePage.java:907)
+	at press3Test.AgentTest.verifyInBoundCallFunctionalityOfAnAgnet(AgentTest.java:79)
 	at java.util.concurrent.FutureTask.run(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
@@ -149,7 +149,7 @@ Session ID: cd59d7dc33a37e2d3368cb0d28722bec]
         </div> <!-- panel oneAgent -->
         <div panel-name="test-xml-oneAgent" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\press3Automation\testngWithOneAgent.xml</span>
+            <span class="header-content">D:\Press3Git\Press3\testngWithOneAgent.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -164,7 +164,7 @@ Session ID: cd59d7dc33a37e2d3368cb0d28722bec]
     &lt;classes&gt;
       &lt;class name=&quot;press3Test.AgentTest&quot;&gt;
         &lt;methods&gt;
-          &lt;include name=&quot;verifyInBoundCallsAregettingRefelectedInCallHistory&quot;/&gt;
+          &lt;include name=&quot;verifyInBoundCallFunctionalityOfAnAgnet&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- press3Test.AgentTest --&gt;
     &lt;/classes&gt;
@@ -208,9 +208,9 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyInBoundCallsAregettingRefelectedInCallHistory')
+data.setCell(0, 1, 'verifyInBoundCallFunctionalityOfAnAgnet')
 data.setCell(0, 2, 'press3Test.AgentTest')
-data.setCell(0, 3, 118307);
+data.setCell(0, 3, 113631);
 window.suiteTableData['oneAgent']= { tableData: data, tableDiv: 'times-div-oneAgent'}
 return data;
 }
@@ -259,8 +259,6 @@ return data;
                 <span class="ignored-method-name">verifyCallBackRequestFunctionalityForOutBound</span>
                 <br/>
                 <span class="ignored-method-name">verifyWhetherTheScriptsAreDiplayedBasedOnTheSkillsThatWereCreatedByManagerOnAgentHomeCampaign</span>
-                <br/>
-                <span class="ignored-method-name">verifyInBoundCallFunctionalityOfAnAgnet</span>
                 <br/>
                 <span class="ignored-method-name">verifyInBoundCallFunctionalityWhenAgentHangUpFromHisEnd</span>
                 <br/>
@@ -362,6 +360,8 @@ return data;
                 <br/>
                 <span class="ignored-method-name">verifyOutBoundCallHistoryOnCallHistory</span>
                 <br/>
+                <span class="ignored-method-name">verifyInBoundCallsAregettingRefelectedInCallHistory</span>
+                <br/>
                 <span class="ignored-method-name">verifyDownloadToExcelFunctionalityOnCRM</span>
                 <br/>
                 <span class="ignored-method-name">verifyFiltersPresentOnTicketHistoryPage</span>
@@ -402,16 +402,16 @@ return data;
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyInBoundCallsAregettingRefelectedInCallHistory</span>
-                <span class="method-start">4067 ms</span>
+                <span class="method-name">verifyInBoundCallFunctionalityOfAnAgnet</span>
+                <span class="method-start">4257 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=verifyInBoundCallsAregettingRefelectedInCallHistory status=FAILURE method=AgentTest...)</span>
-                <span class="method-start">122382 ms</span>
+                <span class="method-name">tearDown([TestResult name=verifyInBoundCallFunctionalityOfAnAgnet status=FAILURE method=AgentTest.verifyInBou...)</span>
+                <span class="method-start">117889 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">quiteBrowser</span>
-                <span class="method-start">123146 ms</span>
+                <span class="method-start">118448 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

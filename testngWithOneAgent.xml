@@ -9,7 +9,7 @@
 		<classes>
 			<class name="press3Test.AgentTest">
 				<methods>
-					<include name="verifyInBoundCallsAregettingRefelectedInCallHistory" />
+					<include name="verifyInBoundCallFunctionalityOfAnAgnet" />
 				</methods>
 			</class>
 		</classes>

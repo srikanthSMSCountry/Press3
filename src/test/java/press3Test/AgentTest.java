@@ -43,7 +43,7 @@ public class AgentTest extends BrowserFunctions {
 	public static String userDirectory;
 	public List<String> onCall = new ArrayList<String>();
 	public List<String> hangUp = new ArrayList<String>();
-	public static int numberOfCustomers = 10;
+	public static int numberOfCustomers = 5;
 	public static int oneCustomer = 1;
 	public static int customerCount = 0;
 	public static boolean writeExcel = false;
@@ -52,14 +52,7 @@ public class AgentTest extends BrowserFunctions {
 	public static Map<String, String> map = null;
 	public static Map<String, String> map1 = new LinkedHashMap<String, String>();
 
-	// AgentHomePage agentHome = new AgentHomePage(driver, profileName,
-	// userName, passWord);
-	// CrmPage crmPage = new CrmPage(driver, profileName, userName, passWord);
-	// CallHistoryPage callHistory = new CallHistoryPage();
-	// Login login = new Login(driver, profileName, userName, passWord);
-
 	// -------------------------------------------------------------InBound
-	// Calls
 
 	// InBound Calls
 	@Test
@@ -1140,6 +1133,7 @@ public class AgentTest extends BrowserFunctions {
 		callHistory.verifyCallDetailsAreDisplayedInCallHistoryForOutBound(number);
 	}
 
+	
 	// agent Profile
 	@Test
 	public void verifyOutBoundCallFromAgentProfile() throws InterruptedException {
@@ -1358,25 +1352,25 @@ public class AgentTest extends BrowserFunctions {
 
 	@Test
 	public void verifyOutBoundCallFunctionalityOnAgentHomeCampaign() throws InterruptedException {
-		testSteps = testCase.createTest("verifyOutBoundCallFunctionalityOnAgentHomeCampaign",
-				"verifyOutBoundCallFunctionalityOnAgentHomeCampaign");
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		CreateCampaign cc = new CreateCampaign(driver, profileName, userName, passWord);
-		BrowserFunctions browesr = new BrowserFunctions();
-		Login login = new Login(driver, profileName, userName, passWord);
-		AgentHomePage agentPage = new AgentHomePage(driver, profileName, userName, passWord);
-
-		login.loginToProfile();
-		md.clickCreateCompaignIcon();
-		String campaignNAme = cc.autoDialerCompaign();
-		cc.startCampaign(campaignNAme);
-		testSteps.log(Status.INFO, "openNewBrowser");
-		WebDriver driver1 = browesr.openNewBrowser();
-
-		testSteps.log(Status.INFO, "loginToNewAgentProfile");
-		login.loginToCampaignAgent(driver1);
-		agentPage.clickOnCamapignHomeOption(driver1);
-		agentPage.switchToNewTab();
+//		testSteps = testCase.createTest("verifyOutBoundCallFunctionalityOnAgentHomeCampaign",
+//				"verifyOutBoundCallFunctionalityOnAgentHomeCampaign");
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		CreateCampaign cc = new CreateCampaign(driver, profileName, userName, passWord);
+//		BrowserFunctions browesr = new BrowserFunctions();
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		AgentHomePage agentPage = new AgentHomePage(driver, profileName, userName, passWord);
+//
+//		login.loginToProfile();
+//		md.clickCreateCompaignIcon();
+//		String campaignNAme = cc.autoDialerCompaign();
+//		cc.startCampaign(campaignNAme);
+//		testSteps.log(Status.INFO, "openNewBrowser");
+//		WebDriver driver1 = browesr.openNewBrowser();
+//
+//		testSteps.log(Status.INFO, "loginToNewAgentProfile");
+//		login.loginToCampaignAgent(driver1);
+//		agentPage.clickOnCamapignHomeOption(driver1);
+//		agentPage.switchToNewTab();
 
 	}
 
@@ -1405,18 +1399,18 @@ public class AgentTest extends BrowserFunctions {
 	@Test
 	public void verifySkillsAreDisplayedInAgentProfileAsPerTheSkillsAssignedByTheManagerWhileCreatingAnAgent()
 			throws InterruptedException {
-		Login login = new Login(driver, profileName, userName, passWord);
-		AgentHomePage agentHome = new AgentHomePage(driver, profileName, userName, passWord);
-		CrmPage crmPage = new CrmPage(driver, profileName, userName, passWord);
-		AgentAndSkills agentSkilss = new AgentAndSkills(driver, profileName, userName, passWord);
-		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
-		ManagerTest managetTest = new ManagerTest();
-		login.loginToManagerProfile();
-
-		managerDashBoard.clickAgentAndSkillsIcon();
-		agentSkilss.createSkill();
-		agentSkilss.verifyCreatedSkill();
-		// managetTest.verifyCreateAgent();
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		AgentHomePage agentHome = new AgentHomePage(driver, profileName, userName, passWord);
+//		CrmPage crmPage = new CrmPage(driver, profileName, userName, passWord);
+//		AgentAndSkills agentSkilss = new AgentAndSkills(driver, profileName, userName, passWord);
+//		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
+//		ManagerTest managetTest = new ManagerTest();
+//		login.loginToManagerProfile();
+//
+//		managerDashBoard.clickAgentAndSkillsIcon();
+//		//agentSkilss.createSkill();
+//		//agentSkilss.verifyCreatedSkill();
+//		// managetTest.verifyCreateAgent();
 	}
 
 	// inprogress - getting issue while creating offline ticket

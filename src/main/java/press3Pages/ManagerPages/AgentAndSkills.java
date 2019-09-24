@@ -1,11 +1,14 @@
 package press3Pages.ManagerPages;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import press3Pages.commonPages.CommonMethods;
 
@@ -247,16 +250,325 @@ public class AgentAndSkills {
 //	}
 	
 	
-	//skills elements
-	
+	//create skills elements
 	public By plusSymbolToCreateSkill = By.xpath("//*[@class='fa fa-plus-circle margin-left-15 fa-x createskill']");
 	public By skillNameField = By.id("txt1");
 	public By skillDescription = By.id("txtarea1");
 	public By createButtonForSkill = By.id("create");
+	public By createdSkills = By.xpath("//*[@id='skillsBody']//*[contains(@id,'lblskill')]");
 	
-	public void createNewSkill() throws InterruptedException{
+	
+	String skillName = "Skill_"+System.currentTimeMillis();
+	String description = "Description_"+System.currentTimeMillis();
+	List<String> skillDetails = new ArrayList<String>();
+	
+	public List<String> createNewSkill() throws InterruptedException{
 		driver.findElement(plusSymbolToCreateSkill).click();
 		Thread.sleep(1000);
+		driver.findElement(skillNameField).sendKeys(skillName);
+		driver.findElement(skillDescription).sendKeys(description);
+		driver.findElement(createButtonForSkill).click();
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+		skillDetails.add(skillName);
+		skillDetails.add(description);
+		return skillDetails;
 	}
+	
+	public void verifyCreatedSkill(){
+		List<WebElement> details = driver.findElements(createdSkills);
+		boolean result = false;
+		for(WebElement detail: details){
+			if(skillDetails.contains(detail.getText())){
+				Assert.assertTrue(true);
+				result = true;
+				break;
+			}
+			else{
+				result = false;
+			}
+		}
+		if(result == true){
+			Assert.assertTrue(result);
+		}else{
+			Assert.assertTrue(result);
+		}
+	}
+	
+	//create skill group
+	public By addNewGrpButton = By.xpath("//*[contains(@class,'creategroup')]");
+	public By skillGrpName = By.id("txt2");
+	public By skillsCheckBox = By.xpath("//*[@id='skills']//*[@class='skills']");
+	public By skills = By.xpath("//*[@id='skills']");
+	public By descriptionForSkillGroup = By.id("txtarea2");
+	public By createGrpBuuton = By.id("create-group");
+	public By savedGrpDetails = By.xpath("//*[@id='skillGroup']//tr");
+	public By grpName = By.xpath(".//*[contains(@id,'lblskill')]");
+	public By savedSkills = By.xpath(".//*[@class='label_round_sm margin-right-5']");
+	public By grpDescription = By.xpath(".//td[3]");
+	
+	
+	String skillsGrpName = "SkillGrp_"+System.currentTimeMillis();
+	String skillsGrpDescription = "SkillGrpDescription_"+System.currentTimeMillis();
+	List<String> listOfGrpDetails = null;
+	
+	public void createSkillGroup() throws InterruptedException{
+		String skillsText = null; 
+		driver.findElement(addNewGrpButton).click();
+		Thread.sleep(1000);
+		skillsText = driver.findElement(skills).getText();
+		driver.findElement(skillGrpName).sendKeys(skillsGrpName);
+		List<WebElement> list = driver.findElements(skillsCheckBox);
+		String[] splitedSkills = skillsText.split("\\s+");
+		listOfGrpDetails = new ArrayList<String>(Arrays.asList(splitedSkills));
+		listOfGrpDetails.add(skillsGrpName);
+		System.out.println(listOfGrpDetails);
+		int i=1;
+		for(WebElement ele: list){
+			if(i<=2){
+				ele.click();
+			}
+			else{
+				break;
+			}
+		}
+		driver.findElement(descriptionForSkillGroup).sendKeys(skillsGrpDescription);
+		listOfGrpDetails.add(skillsGrpDescription);
+		driver.findElement(createGrpBuuton).click();
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(1000);
+	}
+	
+	public void verifySavedSkillGrp(){
+		List<WebElement> list = driver.findElements(savedGrpDetails);
+		boolean result = false;
+		int i=1;
+		for(WebElement ele: list){
+			if(listOfGrpDetails.contains(ele.findElement(grpName).getText())){
+				List<WebElement> skillsSelected = ele.findElements(savedSkills);
+				for(WebElement res: skillsSelected){
+					System.out.println(res.getText());
+					listOfGrpDetails.contains(res.getText());
+					if(i==skillsSelected.size()){
+						System.out.println("---------------");
+						result = true;
+					}
+					i++;
+				}
+				break;
+			}else{
+				result = false;
+			}
+		}
+		if(result == true){
+			Assert.assertTrue(result);
+		}else{
+			Assert.assertTrue(result);
+		}
+	}
+	
+	//create agent elements
+	
+	public By addNewAgent = By.xpath("//*[@class='btn btn-sm btn-success btn-circle pull-right redirectpage']");
+	
+	//AgentProfileSettings elements
+	
+	public By displayName = By.id("txtFullName");
+	public By firstName = By.id("txtFirstName");
+	public By lastName  = By.id("txtLastName");
+	public By mobileNumber  = By.id("txtMobile");
+	public By email  = By.id("txtAgentEmail");
+	public By password  = By.id("txtAgentPassword");
+	public By designation = By.id("ddlDesignation");
+	//Select
+	//Agent
+	//Team Lead
+	//Manager
+	//Back Office
+	//Display Board
+	//Floor Manager
+	//Admin
+	public By deviceType = By.id("ddlDeviceType");
+	//External Sip Account
+	//Press3 Soft Phone
+	//PSTN
+	public By profieStatus = By.id("ddlProfileStatus");
+	//Active
+	//Blocked
+	//Deleted
+	public By outBoundAccess = By.id("ddloutBoundType");
+	//Select
+	//Internal
+	//National
+	//International
+	//No OutBound
+	public By loginRequired = By.id("ddlLoginType");
+	//Yes
+	//No
+	public By reportingManagers = By.xpath("//*[@id='divReportingMangers']//*[@type='button']");
+	public By selectManager = By.xpath("//*[@id='divReportingMangers']//li");
+	//  Select all
+	// Madhu-Manager
+	public By reportingTeamLeads = By.xpath("//*[@id='divReportingSupervisors']//*[@type='button']");
+	public By teamLead = By.xpath("//*[@id='divReportingSupervisors']//*[@class='checkbox']");
+	//  Select all
+	// qwdd
+	// rajaSupervisor
+	
+	public By priority1 = By.xpath("//*[@id='divpriority1']//*[@class='multiselect-native-select']//*[@type='button']");
+	public By priority1Skills = By.xpath("//*[@id='divpriority1']//*[@class='multiselect-native-select']//li");
+	
+	public By priority2 = By.xpath("//*[@id='divpriority2']//*[@class='multiselect-native-select']//*[@type='button']");
+	public By priority2Skills = By.xpath("//*[@id='divpriority2']//*[@class='multiselect-native-select']//li");
+	
+	public By priority3 = By.xpath("//*[@id='divpriority3']//*[@class='multiselect-native-select']//*[@type='button']");
+	public By priority3Skills = By.xpath("//*[@id='divpriority3']//*[@class='multiselect-native-select']//li");
+	
+	public By saveButton = By.id("btnSave");
+	public By cancleButton = By.xpath("//*[@class='btn btn-circle blue margin-right-10 btn-100 cancel']");
+	
+	String displayNameForAgent = "name_"+System.currentTimeMillis();
+	String firstNameForAgent = "firstNAme_"+System.currentTimeMillis();
+	String lastNameForAgent = "lastNAme_"+System.currentTimeMillis();
+	String emailForAgent = "email"+System.currentTimeMillis()+"@gmail.com";
+	String passwordForAgent = "Password123";
+	
+	
+	public long generateNumber()
+	{
+	  return (long)(Math.random()*100000 + 7333300000L);
+	}
+	
+	List<String> agentDetails = null;
+	public List<String> createAgent() throws InterruptedException{
+		agentDetails = new ArrayList<String>();
+		driver.findElement(addNewAgent).click();
+		Thread.sleep(1000);
+		driver.findElement(displayName).sendKeys(displayNameForAgent);
+		agentDetails.add(displayNameForAgent);
+		driver.findElement(firstName).sendKeys(firstNameForAgent);
+		agentDetails.add(firstNameForAgent);
+		driver.findElement(lastName).sendKeys(lastNameForAgent);
+		agentDetails.add(lastNameForAgent);
+		long number = generateNumber();
+		String mobileNum = Long.toString(number);
+		driver.findElement(mobileNumber).sendKeys(mobileNum);
+		agentDetails.add(mobileNum);
+		driver.findElement(email).sendKeys(emailForAgent);
+		agentDetails.add(emailForAgent);
+		driver.findElement(password).sendKeys(passwordForAgent);
+		agentDetails.add(passwordForAgent);
+		Select selectDesignation = new Select(driver.findElement(designation));
+		selectDesignation.selectByVisibleText("Agent");
+		agentDetails.add("Agent");
+		Select selectDeviceType = new Select(driver.findElement(deviceType));
+		selectDeviceType.selectByVisibleText("PSTN");
+		agentDetails.add("PSTN");
+		Select selectProfileStatus = new Select(driver.findElement(profieStatus));
+		selectProfileStatus.selectByVisibleText("Active");
+		agentDetails.add("Active");
+		Select selectOutBoundAccess = new Select(driver.findElement(outBoundAccess));
+		selectOutBoundAccess.selectByVisibleText("National");
+		agentDetails.add("National");
+		Select selectLoginRequired = new Select(driver.findElement(loginRequired));
+		selectLoginRequired.selectByVisibleText("Yes");
+		agentDetails.add("Yes");
+		driver.findElement(reportingManagers).click();
+		Thread.sleep(1000);
+		List<WebElement> managers= driver.findElements(selectManager);
+		for(WebElement manager: managers){
+			System.out.println("managers : "+manager.getText());
+			if(manager.getText().contains("Madhu-Manager")){
+				manager.click();
+				agentDetails.add("Madhu-Manager");
+				break;
+			}
+		}
+		driver.findElement(reportingTeamLeads).click();
+		Thread.sleep(1000);
+		List<WebElement> leads= driver.findElements(teamLead);
+		for(WebElement lead: leads){
+			System.out.println("leads : "+lead.getText());
+			if(lead.getText().contains("qwdd")){
+				lead.click();
+				agentDetails.add("qwdd");
+				break;
+			}
+		}
+		driver.findElement(priority1).click();
+		Thread.sleep(1000);
+		List<WebElement> priority1Skill= driver.findElements(priority1Skills);
+		for(WebElement skill: priority1Skill){
+			System.out.println("priority1 : "+skill.getText());
+			if(skill.getText().contains("skill1")){
+				skill.click();
+				agentDetails.add("skill1");
+				break;
+			}
+		}
+		driver.findElement(priority2).click();
+		Thread.sleep(1000);
+		List<WebElement> priority2Skill= driver.findElements(priority2Skills);
+		for(WebElement skill: priority2Skill){
+			System.out.println("priority2 : "+skill.getText());
+			if(skill.getText().contains("skill2")){
+				skill.click();
+				agentDetails.add("skill2");
+				break;
+			}
+		}
+		driver.findElement(saveButton).click();
+		System.out.println(agentDetails);
+		Thread.sleep(1000);
+		driver.switchTo().alert().accept();
+		
+		return agentDetails;
+	}
+	List<String> allAgentDetails = agentDetails;
+	
+	//agent details display fields
+	public By agentSearchFields = By.id("txtSearch");
+	public By createdAgents = By.xpath("//*[@id='agentSkills']//tr");
+	public By name = By.xpath("./td[1]");
+	public By designationOfcreatedAgent = By.xpath("./td[2]");
+	public By skill = By.xpath(".//td[3]//*[@class='label_round_sm margin-right-5']");
+	public By loginType = By.xpath("./td[4]");
+	public By deviceTypeOfcreatedAgent = By.xpath("./td[5]");
+	public By deviceUserName = By.xpath("./td[6]");
+	public By devicePassword = By.xpath("./td[7]");
+	public By ipAddress = By.xpath("./td[8]");
+	public By portNumber = By.xpath("./td[9]");
+	public By gateWay = By.xpath("./td[10]");
+	public By deviceStatus = By.xpath("./td[11]");
+	public By activeStatus = By.xpath("./td[12]");
+	public By obAccessType = By.xpath("./td[13]");
+	public By lastSignalReceivedOn = By.xpath("./td[14]");
+	public By loggedInFromWeb = By.xpath("./td[15]");
+	
+	public void verifyCreatedAgent(List<String> details)
+	{
+		boolean result= false;
+		List<WebElement> allDetails = driver.findElements(createdAgents);
+		for(WebElement detail : allDetails){
+			if(details.get(0).equalsIgnoreCase(detail.findElement(name).getText())){
+				System.out.println(detail.findElement(name).getText());
+				System.out.println(detail.findElement(designationOfcreatedAgent).getText());
+				Assert.assertTrue(details.contains(detail.findElement(designationOfcreatedAgent).getText()));
+				//Assert.assertTrue(details.contains(detail.findElement(designationOfcreatedAgent).getText()));
+				result= true;
+				break;
+			}
+		}
+		if(result  ==true){
+			System.out.println("hello");
+			Assert.assertTrue(true);
+		}else{
+			System.out.println("hi");
+			Assert.assertTrue(false);
+		}
+	}
+	
+	
 
 }

@@ -6,7 +6,10 @@ import press3Pages.ManagerPages.CreateCampaign;
 import press3Pages.ManagerPages.GeneralSettings;
 import press3Pages.ManagerPages.IvrStudios;
 import press3Pages.ManagerPages.ManagerDashboard;
+import press3Pages.ManagerPages.Scripts;
 import press3Pages.agentPages.Login;
+import press3Pages.commonPages.LoginPage;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,120 +55,194 @@ public class ManagerTest extends BrowserFunctions {
 	public static Map<String, String> map = null;
 	public static Map<String, String> map1 = new LinkedHashMap<String, String>();
 
-	ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-	AgentAndSkills as = new AgentAndSkills(driver, profileName, userName, passWord);
-	CreateCampaign cc = new CreateCampaign(driver, profileName, userName, passWord);
-	IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
-	GeneralSettings gs = new GeneralSettings();
-	// AgentHomePage agentHome = new AgentHomePage(driver, profileName,
-	// userName, passWord);
-	// CrmPage crmPage = new CrmPage(driver, profileName, userName, passWord);
-	// CallHistoryPage callHistory = new CallHistoryPage();
-	// Login login = new Login(driver, profileName, userName, passWord);
-	
-	
-	public void verifyCreateScript() throws InterruptedException{
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		AgentAndSkills as = new AgentAndSkills(driver, profileName, userName, passWord);
+	@Test
+	public void createSkill() throws InterruptedException{
+		testSteps = testCase.createTest("createSkill",
+				"createSkill");
+		System.out.println("hello");
 		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
+		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
+		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
+		AgentAndSkills agentNskills = new AgentAndSkills(driver, profileName, userName, passWord);
 		
-	}
-
-	public void verifyCreateAgent() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		AgentAndSkills as = new AgentAndSkills(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
+		testSteps.log(Status.INFO, "loginToProfile");
 		login.loginToProfile();
-		md.clickAgentAndSkillsIcon();
-		as.clickPlusIconForNewSkill();
-		as.createNewSkill();
-		as.addNewGroup();
-		as.addNewAgent();
-		md.logoutManager();
-		as.verifyAgentDetails();
-		as.verifySkillAndSkillGroup();
+		testSteps.log(Status.INFO, "selectAgentAndSkillsOption");
+		managerDashBoard.selectAgentAndSkillsOption();
+		testSteps.log(Status.INFO, "createNewSkill");
+		agentNskills.createNewSkill();
+		testSteps.log(Status.INFO, "verifyCreatedSkill");
+		agentNskills.verifyCreatedSkill();
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
+	}
+	
+	@Test
+	public void createAgent() throws InterruptedException{
+		testSteps = testCase.createTest("createAgent",
+				"createAgent");
+		AgentHomePage agentHome = new AgentHomePage(driver, profileName, userName, passWord);
+		Login login = new Login(driver, profileName, userName, passWord);
+		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
+		AgentAndSkills agentNskills = new AgentAndSkills(driver, profileName, userName, passWord);
+		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
+		
+		testSteps.log(Status.INFO, "loginToProfile");
+		login.loginToProfile();
+		testSteps.log(Status.INFO, "selectAgentAndSkillsOption");
+		managerDashBoard.selectAgentAndSkillsOption();
+		testSteps.log(Status.INFO, "createAgent");
+		List<String> details= agentNskills.createAgent();
+		testSteps.log(Status.INFO, "verifyCreatedAgent");
+		agentNskills.verifyCreatedAgent(details);
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
+		testSteps.log(Status.INFO, "loginToProfile");
+		loginPage.loginToProfile(details.get(4),details.get(5));
+		testSteps.log(Status.INFO, "navigateToProfile");
+		agentHome.navigateToProfile();
+		testSteps.log(Status.INFO, "switchToNewTab");
+		agentHome.switchToNewTab();
+		testSteps.log(Status.INFO, "verifyCreatedProfile");
+		agentHome.verifyCreatedProfile(details);
+		testSteps.log(Status.INFO, "closeCurrentTab");
+		agentHome.closeCurrentTab();
+		testSteps.log(Status.INFO, "switchToDefaultTab");
+		agentHome.switchToDefaultTab();
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
+	}
+	
+	@Test
+	public void createSkillGroup() throws InterruptedException{
+		testSteps = testCase.createTest("createSkillGroup",
+				"createSkillGroup");
+		AgentHomePage agentHome = new AgentHomePage(driver, profileName, userName, passWord);
+		Login login = new Login(driver, profileName, userName, passWord);
+		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
+		AgentAndSkills agentNskills = new AgentAndSkills(driver, profileName, userName, passWord);
+		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
+		
+		testSteps.log(Status.INFO, "loginToProfile");
+		login.loginToProfile();
+		testSteps.log(Status.INFO, "selectAgentAndSkillsOption");
+		managerDashBoard.selectAgentAndSkillsOption();
+		testSteps.log(Status.INFO, "createSkillGroup");
+		agentNskills.createSkillGroup();
+		testSteps.log(Status.INFO, "verifySavedSkillGrp");
+		agentNskills.verifySavedSkillGrp();
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
+	}
+	
+	@Test
+	public void verifyCreateScript() throws InterruptedException{
+		testSteps = testCase.createTest("verifyCreateScript",
+				"verifyCreateScript");
+		AgentHomePage agentHome = new AgentHomePage(driver, profileName, userName, passWord);
+		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
+		AgentAndSkills agentNskills = new AgentAndSkills(driver, profileName, userName, passWord);
+		Login login = new Login(driver, profileName, userName, passWord);
+		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
+		Scripts script = new Scripts(driver, profileName, userName, passWord);
+		
+		testSteps.log(Status.INFO, "loginToProfile");
+		login.loginToProfile();
+		testSteps.log(Status.INFO, "selectScriptsOption");
+		managerDashBoard.selectScriptsOption();
+		testSteps.log(Status.INFO, "createScript");
+		List<String> details=script.createScript();
+		testSteps.log(Status.INFO, "verifyCreatedScript");
+		script.verifyCreatedScript(details);
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
+		testSteps.log(Status.INFO, "loginToExistingProfile");
+		loginPage.loginToExistingProfile();
+		testSteps.log(Status.INFO, "verifyScriptsAreDisplayedOnAgentPage");
+		agentHome.verifyScriptsAreDisplayedOnAgentPage(details);
+		testSteps.log(Status.INFO, "logOutProfile");
+		loginPage.logOutProfile();
 	}
 
 	public void verifyCreateCompaign() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		CreateCampaign cc = new CreateCampaign(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
-		md.clickCreateCompaignIcon();
-		cc.autoDialerCompaign();
-		md.clickCreateCompaignIcon();
-		cc.voiceBroadcastCompaign();
-		md.clickCreateCompaignIcon();
-		cc.ivrSurveyCompaign();
-		md.clickCreateCompaignIcon();
-		cc.IvrConnectCompaign();
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		CreateCampaign cc = new CreateCampaign(driver, profileName, userName, passWord);
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		login.loginToProfile();
+//		md.clickCreateCompaignIcon();
+//		cc.autoDialerCompaign();
+//		md.clickCreateCompaignIcon();
+//		cc.voiceBroadcastCompaign();
+//		md.clickCreateCompaignIcon();
+//		cc.ivrSurveyCompaign();
+//		md.clickCreateCompaignIcon();
+//		cc.IvrConnectCompaign();
 	}
 	
 	public void createNewIvr() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
-		md.clickIvrStudioIcon();
-		ivr.createNewIvrStudio();
-		ivr.setPlayMessge();
-		ivr.setRingUser();
-		ivr.createNewIvr();
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		login.loginToProfile();
+//		md.clickIvrStudioIcon();
+//		ivr.createNewIvrStudio();
+//		ivr.setPlayMessge();
+//		ivr.setRingUser();
+//		ivr.createNewIvr();
 	}
 
 	public void createMenuIvr() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
-		md.clickIvrStudioIcon();
-		ivr.createNewIvrStudio();
-		ivr.setPlayMessge();
-		ivr.setMenu();
-		ivr.setRingUserForMenuIvr();
-		// ivr.setmenu1();
-		// ivr.menu1EndFlow();
-		ivr.setMenu2();
-		ivr.menu2Endflow();
-		ivr.setMenu3();
-		ivr.menu3EndFlow();
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		IvrStudios ivr = new IvrStudios(driver, profileName, userName, passWord);
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		login.loginToProfile();
+//		md.clickIvrStudioIcon();
+//		ivr.createNewIvrStudio();
+//		ivr.setPlayMessge();
+//		ivr.setMenu();
+//		ivr.setRingUserForMenuIvr();
+//		// ivr.setmenu1();
+//		// ivr.menu1EndFlow();
+//		ivr.setMenu2();
+//		ivr.menu2Endflow();
+//		ivr.setMenu3();
+//		ivr.menu3EndFlow();
 	}
 
 	public void genSettings() throws InterruptedException {
-		md.clickOnGenSettings();
-		gs.serviceLevel();
-		gs.clickSmsAndEmailTemlete();
-		gs.smsTemplate();
-		gs.emailTemplate();
-		gs.clickOnTicketManagement();
-		gs.statusTicketManagement();
-		gs.priorityTicketManagement();
-		gs.ticketNotificationsTicketManagement();
-		gs.clickCallerBasicDetails();
-		gs.callerBasicDetails();
+//		md.clickOnGenSettings();
+//		gs.serviceLevel();
+//		gs.clickSmsAndEmailTemlete();
+//		gs.smsTemplate();
+//		gs.emailTemplate();
+//		gs.clickOnTicketManagement();
+//		gs.statusTicketManagement();
+//		gs.priorityTicketManagement();
+//		gs.ticketNotificationsTicketManagement();
+//		gs.clickCallerBasicDetails();
+//		gs.callerBasicDetails();
 
 	}
 
 	public void verifyChangeProfileStatus_break_ready_workAssigned() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
-		md.profileStatus_break();
-		md.profileStatus_ready();
-		md.profileStatus_workAssigned();
-		md.profileStatus_break();
-		md.profileStatus_ready();
-		md.profileStatus_workAssigned();
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		login.loginToProfile();
+//		md.profileStatus_break();
+//		md.profileStatus_ready();
+//		md.profileStatus_workAssigned();
+//		md.profileStatus_break();
+//		md.profileStatus_ready();
+//		md.profileStatus_workAssigned();
 	}
 
 	@Test
 	public void verifyManagerProfileDetails() throws InterruptedException {
-		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
-		Login login = new Login(driver, profileName, userName, passWord);
-		login.loginToProfile();
-		md.clickOnMyProfile();
-		Assert.assertEquals(md.getProfileName(), md.getProfileNameFromMyProfile());
+//		ManagerDashboard md = new ManagerDashboard(driver, profileName, userName, passWord);
+//		Login login = new Login(driver, profileName, userName, passWord);
+//		login.loginToProfile();
+//		md.clickOnMyProfile();
+//		Assert.assertEquals(md.getProfileName(), md.getProfileNameFromMyProfile());
 
 	}
 

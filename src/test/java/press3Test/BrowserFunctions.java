@@ -69,7 +69,7 @@ public class BrowserFunctions {
 		System.out.println("browser started");
 		
 		ChromeDriverService chSvc = new ChromeDriverService.Builder()
-				.usingDriverExecutable(new File("D:\\press3Automation\\Drivers\\chromedriver.exe")).usingAnyFreePort()
+				.usingDriverExecutable(new File("D:\\Press3Git\\Press3\\Drivers\\chromedriver.exe")).usingAnyFreePort()
 				.build();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments(

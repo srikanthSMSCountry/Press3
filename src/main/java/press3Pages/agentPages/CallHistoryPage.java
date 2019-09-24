@@ -66,7 +66,6 @@ public class CallHistoryPage extends BrowserFunctions {
 	public By fromNumberForInBound = By.xpath(".//td[2]");
 	public By toNumberForInBound = By.xpath(".//td[3]");
 	public By callOptionForInBound = By.xpath(".//td[3]//*[@type='button']");
-	
 	public By skillGroup = By.xpath(".//td[4]");
 	public By skillSelectionFlow = By.xpath(".//td[5]");
 	public By agent = By.xpath(".//td[6]");
@@ -137,7 +136,7 @@ public class CallHistoryPage extends BrowserFunctions {
 				det.add(ele.findElement(fromNumberForInBound).getText());
 				det.add(ele.findElement(timeStampForInBound).getText());
 				det.add(ele.findElement(durationForInbound).getText());
-				det.add(ele.findElement(fromNumberForInBound).getText());
+				//det.add(ele.findElement(fromNumberForInBound).getText());
 				Assert.assertEquals(ele.findElement(fromNumberForInBound).getText(), details.add(0));
 				break;
 			}
