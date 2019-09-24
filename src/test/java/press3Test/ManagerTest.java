@@ -62,6 +62,7 @@ public class ManagerTest extends BrowserFunctions {
 		System.out.println("hello");
 		System.out.println("hi");
 		System.out.println("chandra branch");
+		System.out.println("Manik branch1");
 		Login login = new Login(driver, profileName, userName, passWord);
 		LoginPage loginPage = new LoginPage(driver, profileName, userName, passWord);
 		ManagerDashboard managerDashBoard = new ManagerDashboard(driver, profileName, userName, passWord);
